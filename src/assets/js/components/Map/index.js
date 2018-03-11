@@ -2,20 +2,12 @@
 // Imports
 // ----------------------------------------------
 import React, { Component } from 'react';
+import GoogleMap from './GoogleMap';
 import axios from 'axios';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
-
-import mapStyles from './mapStyles.json';
 
 // ----------------------------------------------
 // Map
 // ----------------------------------------------
-const GoogleMapComponent = withScriptjs(withGoogleMap(props => (
-  <GoogleMap defaultOptions={{ styles: mapStyles }} defaultZoom={4} defaultCenter={{ lat: props.latitude, lng: props.longitude }}>
-    <Marker position={{ lat: props.latitude, lng: props.longitude }} />
-  </GoogleMap>
-)));
-
 export default class Map extends Component {
   constructor(props) {
     super(props);
@@ -50,10 +42,10 @@ export default class Map extends Component {
 
     return (
       <section className="iss">
-        <GoogleMapComponent
+        <GoogleMap
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpB847CA-on6p8wgXEnGDgR9ChvRbgLhI&v=3"
-          loadingElement={<div className="iss__map" />}
-          containerElement={<div className="iss__map" />}
+          loadingElement={<div className="iss__loading" />}
+          containerElement={<div className="iss__container" />}
           mapElement={<div className="iss__map" />}
           latitude={this.state.latitude}
           longitude={this.state.longitude}
