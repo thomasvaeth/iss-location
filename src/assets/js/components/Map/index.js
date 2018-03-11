@@ -11,8 +11,8 @@ import mapStyles from './mapStyles.json';
 // Map
 // ----------------------------------------------
 const GoogleMapComponent = withScriptjs(withGoogleMap(props => (
-  <GoogleMap defaultZoom={4} defaultCenter={props.position}>
-    <Marker position={props.position} />
+  <GoogleMap defaultOptions={{ styles: mapStyles }} defaultZoom={4} defaultCenter={{ lat: props.latitude, lng: props.longitude }}>
+    <Marker position={{ lat: props.latitude, lng: props.longitude }} />
   </GoogleMap>
 )));
 
@@ -52,11 +52,11 @@ export default class Map extends Component {
       <section className="iss">
         <GoogleMapComponent
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpB847CA-on6p8wgXEnGDgR9ChvRbgLhI&v=3"
-          defaultOptions={{ styles: mapStyles }}
           loadingElement={<div className="iss__map" />}
           containerElement={<div className="iss__map" />}
           mapElement={<div className="iss__map" />}
-          position={position}
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
         />
       </section>
     );
