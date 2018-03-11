@@ -20,6 +20,12 @@ export default class Map extends Component {
 
   componentDidMount() {
     this.latitudeLongitude();
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        this.latitudeLongitude();
+      }
+    });
   }
 
   latitudeLongitude() {
@@ -38,8 +44,6 @@ export default class Map extends Component {
   }
 
   render() {
-    const position = { lat: this.state.latitude, lng: this.state.longitude};
-
     return (
       <section className="iss">
         <GoogleMap
