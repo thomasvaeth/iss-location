@@ -1,7 +1,7 @@
 {
   "name": "iss-location",
   "version": "1.0.0",
-  "description": "ISS Location is my solution to the weekly Interview Question of the Week from Cassidy Williams. Sign up at tinyletter.com/cassidoo.",
+  "description": "ISS Location is my solution to the Interview Question of the Week from Cassidy Williams. Sign up at tinyletter.com/cassidoo.",
   "main": "webpack.prod.js",
   "homepage": "http://thomasvaeth.com/iss-location",
   "scripts": {
