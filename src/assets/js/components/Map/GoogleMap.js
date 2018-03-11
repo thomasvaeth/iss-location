@@ -5,26 +5,35 @@ import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
 import mapStyles from './mapStyles.json';
+import mapIcon from '../../../images/iss.png';
 
 // ----------------------------------------------
 // Google Map
 // ----------------------------------------------
 export default withScriptjs(withGoogleMap(props => {
-  const center = {
+  const position = {
     lat: props.latitude, 
     lng: props.longitude
   };
 
   const mapOptions = {
     zoom: 4,
-    center: center,
+    center: position,
     mapTypeId: 'terrain',
     styles: mapStyles
   };
 
+  const markerOptions = {
+    position: position,
+    icon: {
+      url: mapIcon,
+      scaledSize: new google.maps.Size(48, 48)
+    }
+  };
+
   return (
     <GoogleMap options={mapOptions}>
-      <Marker position={center} />
+      <Marker options={markerOptions} />
     </GoogleMap>
   );
 }));

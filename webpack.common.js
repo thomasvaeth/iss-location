@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/assets/js/app.js',
-    vendor: ['react', 'react-dom', 'axios']
+    vendor: ['react', 'react-dom', 'axios', 'react-google-maps']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,6 +17,10 @@ module.exports = {
         test: /\.js$/, 
         loader: 'babel-loader', 
         exclude: /node_modules/ 
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loader: 'file-loader?name=./assets/images/[hash].[ext]'
       },
       {
         test: /\.scss$/,
