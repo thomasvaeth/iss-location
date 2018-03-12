@@ -18,6 +18,7 @@ export default withScriptjs(withGoogleMap(props => {
 
   const mapOptions = {
     zoom: 4,
+    minZoom: 3,
     center: position,
     mapTypeId: 'terrain',
     styles: mapStyles
